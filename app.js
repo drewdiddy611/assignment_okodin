@@ -11,6 +11,7 @@ app.use(
 );
 
 app.use((req, res, next) => {
+	if (req.path === '/') res.redirect('/users');
 	if (req.session.username) {
 		if (req.path === '/login') {
 			res.redirect('/users');
@@ -46,6 +47,11 @@ app.use((req, res, next) => {
 });
 
 const expressHandlebars = require('express-handlebars');
+expressHandlebars.registerHelper('times', function(n, block) {
+	var accum = '';
+	for (var i = 0; i < n; ++i) accum += block.fn(i);
+	return accum;
+});
 const hbs = expressHandlebars.create({
 	defaultLayout: 'application'
 });
