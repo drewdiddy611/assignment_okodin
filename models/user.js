@@ -1,4 +1,6 @@
 'use strict';
+const sequelize = require('sequelize');
+const { Model, DataTypes } = sequelize;
 
 class User extends Model {}
 
@@ -11,7 +13,7 @@ User.init(
 		email: DataTypes.STRING
 	},
 	{
-		// options
+		sequelize
 	}
 );
 
