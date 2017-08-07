@@ -1,22 +1,22 @@
 {
 	"development": {
-		"username": "user",
-		"password": null,
-		"database": "database_name",
+		"username": "asenner",
+		"password": "djs072305diddy!",
+		"database": "okodin",
 		"host": "127.0.0.1",
 		"dialect": "postgres"
 	},
 	"test": {
-		"username": "user",
-		"password": null,
-		"database": "database_name",
+		"username": "asenner",
+		"password": "djs072305diddy!",
+		"database": "okodin",
 		"host": "127.0.0.1",
 		"dialect": "postgres"
 	},
 	"production": {
-		"username": "user",
-		"password": null,
-		"database": "database_name",
+		"username": "asenner",
+		"password": "djs072305diddy!",
+		"database": "okodin",
 		"host": "127.0.0.1",
 		"dialect": "postgres"
 	}

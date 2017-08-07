@@ -1,16 +1,14 @@
 'use strict';
-const Model = require("sequelize").Model
-
 module.exports = function(sequelize, DataTypes) {
-  class Location extends Model;
+	class Location extends sequelize.Model {}
 
-  Location.init(
-    {
-      distance: DataTypes.INTEGER,
-        city: DataTypes.STRING
-    },
-    { sequelize }
-  );
+	Location.init(
+		{
+			distance: DataTypes.INTEGER,
+			city: DataTypes.STRING
+		},
+		{ sequelize }
+	);
+
+	return Location;
 };
-
-return Location;
