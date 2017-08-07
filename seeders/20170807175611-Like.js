@@ -5,7 +5,7 @@ module.exports = {
 		let likes = [],
 			i = 0;
 		while (likes.length < 10) {
-			if (!!Math.random() * 2) {
+			if (!!Math.random() + 1) {
 				likes.push({
 					liker_id: i + 1,
 					likee_id: 1 + Math.floor(Math.random() * 10)

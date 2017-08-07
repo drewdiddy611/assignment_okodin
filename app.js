@@ -14,16 +14,13 @@ app.use((req, res, next) => {
 	if (req.session.username) {
 		if (req.path === '/login') {
 			res.redirect('/users');
-		} else {
-			next();
 		}
 	} else if (!req.session.username) {
 		if (req.path !== '/login') {
 			res.redirect('/login');
-		} else {
-			next();
 		}
 	}
+	next();
 });
 
 const bodyParser = require('body-parser');

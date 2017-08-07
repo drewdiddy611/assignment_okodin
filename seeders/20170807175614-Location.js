@@ -5,7 +5,7 @@ module.exports = {
 		let locations = [];
 		for (let i = 0; i < 10; i++) {
 			locations.push({
-				distance: 1 + Math.floor(Math.random() * (1 + Math.random() * 10)),
+				distance: 1 + Math.floor(Math.random() * (1 + Math.random() + 10)),
 				city: 'Some Cool City Bruh'
 			});
 		}

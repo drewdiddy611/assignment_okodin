@@ -7,11 +7,11 @@ module.exports = {
 			infoEntityArray.push({
 				age: 1 + Math.floor(Math.random() * 10 + 13),
 				location_id: i + 1,
-				gender: !!(Math.random() * 2),
+				gender: !!(Math.random() + 1),
 				maritalStatus: 'Single',
 				height: '5\' 11"',
 				bodyType: 'God-like',
-				kids: !!(Math.random() * 2),
+				kids: !!(Math.random() + 1),
 				occupation: 'Lorem ipsum'
 			});
 		}
