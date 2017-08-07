@@ -1,11 +1,10 @@
-{{#if error}}
-  <section class="alert alert-dismissible text-center">
-  {{error}}
-  </section>
-{{/if}}
-
 <section class="row">
   <div style="margin-top: 10em;" class="col-xs-4 col-xs-offset-4">
+    {{#if error}}
+      <div class="alert alert-danger text-center">
+      {{error}}
+      </div>
+    {{/if}}
     <h4>Login to Continue</h4>
 		<hr>
     <form method="POST" class="form-inline">
