@@ -1,26 +1,19 @@
-'use strict';
-const sequelize = require('sequelize');
-const { Model, DataTypes } = sequelize;
+"use strict";
+const Model = require("sequelize").Model;
 
-class User extends Model {}
+module.exports = function(sequelize, DataTypes) {
+  class User extends Model {
+    static associate(models) {
+      User.hasOne(models.Profile, { foreignKey: "profile_id" });
+    }
+  }
 
-// Initialize the model.
-User.init(
-	{
-		fname: DataTypes.STRING,
-		lname: DataTypes.STRING,
-		username: DataTypes.STRING,
-		email: DataTypes.STRING
-	},
-	{
-		sequelize
-	}
-);
-
-// Add class methods with:
-// User.[classMethod] = () => {}
-
-// Add instance methods with:
-// User.prototype.[classMethod] => () => {}
-
-module.exports = User;
+  User.init(
+    {
+      username: DataTypes.STRING,
+      email: DataTypes.STRING,
+      profile_id: DataTypes.INTEGER
+    },
+    { sequelize }
+  );
+};
