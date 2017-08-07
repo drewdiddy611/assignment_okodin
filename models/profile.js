@@ -1,24 +1,27 @@
-'use strict';
+"use strict";
 module.exports = function(sequelize, DataTypes) {
-	class Profile extends sequelize.Model {
-		static associate(models) {
-			Profile.hasOne(models.BasicInfo, {
-				foreignKey: 'id'
-			});
-		}
-	}
+  class Profile extends sequelize.Model {
+    static associate(models) {
+      Profile.hasOne(models.BasicInfo, {
+        foreignKey: "id"
+      });
+      Profile.belongsTo(models.User, {
+        foreignKey: "id"
+      });
+    }
+  }
 
-	Profile.init(
-		{
-			photo: DataTypes.BLOB,
-			aboutMe: DataTypes.TEXT,
-			talents: DataTypes.TEXT,
-			favoriteThings: DataTypes.TEXT,
-			whyImAwesome: DataTypes.TEXT,
-			basicInfo_id: DataTypes.INTEGER
-		},
-		{ sequelize }
-	);
+  Profile.init(
+    {
+      photo: DataTypes.BLOB,
+      aboutMe: DataTypes.TEXT,
+      talents: DataTypes.TEXT,
+      favoriteThings: DataTypes.TEXT,
+      whyImAwesome: DataTypes.TEXT,
+      basicInfo_id: DataTypes.INTEGER
+    },
+    { sequelize }
+  );
 
-	return Profile;
+  return Profile;
 };

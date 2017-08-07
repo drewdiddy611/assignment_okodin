@@ -15,10 +15,10 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   </head>
   <body>
-		{{#if nav }}
+		{{#unless hideNav }}
 			{{>navbar}}
-		{{/if }}
-  
+		{{/unless }}
+
     <main class="container">
       {{{ body }}}
     </main>

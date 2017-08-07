@@ -23,6 +23,8 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.use(express.static('public'));
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -47,10 +49,12 @@ const hbs = expressHandlebars.create({
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-var usersRoutes = require('./routes/users');
-app.use('/', usersRoutes);
 var loginRoutes = require('./routes/login');
 app.use('/', loginRoutes);
+var usersRoutes = require('./routes/users');
+app.use('/', usersRoutes);
+var profileRoutes = require('./routes/profiles');
+app.use('/', profileRoutes);
 
 app.listen(3000, () => {
 	console.log('Listening...');
