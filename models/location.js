@@ -1,14 +1,16 @@
 'use strict';
+const Model = require("sequelize").Model
+
 module.exports = function(sequelize, DataTypes) {
-  var Location = sequelize.define('Location', {
-    distance: DataTypes.INTEGER,
-    city: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
-  });
-  return Location;
+  class Location extends Model;
+
+  Location.init(
+    {
+      distance: DataTypes.INTEGER,
+        city: DataTypes.STRING
+    },
+    { sequelize }
+  );
 };
+
+return Location;
