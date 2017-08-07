@@ -13,6 +13,20 @@ module.exports = function(sequelize, DataTypes) {
 				otherKey: 'liker_id'
 			});
 		}
+
+		static exists(username) {
+			let found = false;
+			return User.count({
+				where: {
+					username: username
+				}
+			}).then(count => {
+				return new Promise((resolve, reject) => {
+					if (count > 0) resolve(true);
+					reject('Error: User does not exist!');
+				});
+			});
+		}
 	}
 
 	User.init(
