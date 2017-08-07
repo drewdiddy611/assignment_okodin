@@ -14,13 +14,16 @@ app.use((req, res, next) => {
 	if (req.session.username) {
 		if (req.path === '/login') {
 			res.redirect('/users');
+		} else {
+			next();
 		}
 	} else if (!req.session.username) {
 		if (req.path !== '/login') {
 			res.redirect('/login');
+		} else {
+			next();
 		}
 	}
-	next();
 });
 
 app.use(express.static('public'));
@@ -51,8 +54,10 @@ app.set('view engine', 'handlebars');
 
 var loginRoutes = require('./routes/login');
 app.use('/', loginRoutes);
+
 var usersRoutes = require('./routes/users');
 app.use('/', usersRoutes);
+
 var profileRoutes = require('./routes/profiles');
 app.use('/', profileRoutes);
 

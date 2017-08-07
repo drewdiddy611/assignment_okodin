@@ -2,33 +2,88 @@
   <h1>Vikings</h1>
 </header>
 
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Search</h3>
+  </div>
+  <div class="panel-body">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#basics" aria-controls="basics" role="tab" data-toggle="tab">Basics</a></li>
+      <li role="presentation"><a href="#appearance" aria-controls="appearance" role="tab" data-toggle="tab">Appearance</a></li>
+      <li role="presentation"><a href="#weapons" aria-controls="weapons" role="tab" data-toggle="tab">Weapons</a></li>
+      <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">Availability</a></li>
+    </ul>
 
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="basics">
+        <form class="form-inline">
+          <div class="form-group">
+            <select class="form-control" name="user[sort_by]">
+              <option value="distance">Distance</option>
+              <option value="age">Age</option>
+              <option value="last_login">Last Login</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search for lonely deities">
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="appearance">...</div>
+      <div role="tabpanel" class="tab-pane" id="weapons">...</div>
+      <div role="tabpanel" class="tab-pane" id="availability">...</div>
+    </div>
 
-{{#if users.length }}
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Username</th>
-        <th>Email</th>
-        <th>Like?</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each users as |user| }}
-      <tr>
-        <td>
-          <a href="/profiles/show/{{ user.profile_id }}">{{ user.username }}</a>
-        </td>
-        <td>
-          <a href="/profiles/show/{{ user.profile_id }}">{{ user.email }}</a>
-        </td>
-        <td>
-          <a href="/users/like/{{ user.id }}">Like</a>
-        </td>
-      </tr>
-      {{/each }}
-    </tbody>
-  </table>
-{{else }}
-  <p class="text-danger">No users</p>
-{{/if }}
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Select a user to view their profile</h3>
+  </div>
+  <div class="panel-body">
+    {{#if users.length }}
+      <table class="row table table-striped">
+        <thead>
+          <tr>
+            <th class="col-xs-1"></th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Like?</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each users as |user| }}
+          <tr>
+            <td>
+              <img class="profile-image-small" src="/images/viking_{{ user.Profile.BasicInfo.userGender }}.jpg" />
+            </td>
+            <td>
+              <a href="/profiles/show/{{ user.profile_id }}">{{ user.username }}</a>
+            </td>
+            <td>
+              <a href="/profiles/show/{{ user.profile_id }}">{{ user.email }}</a>
+            </td>
+            <td>
+              <a href="/users/like/{{ user.id }}">Like</a>
+            </td>
+          </tr>
+          {{/each }}
+        </tbody>
+      </table>
+    {{else }}
+      <p class="text-danger">No users</p>
+    {{/if }}
+
+  </div>
+  <div class="panel-footer">
+    <ul class="pagination">
+      <li><a href="#">&laquo;</a></li>
+
+      <li><a href="#">&raquo;</a></li>
+    </ul>
+  </div>
+</div>

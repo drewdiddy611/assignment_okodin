@@ -6,6 +6,10 @@ module.exports = function(sequelize, DataTypes) {
 				foreignKey: 'id'
 			});
 		}
+
+		get userGender() {
+			return this.gender ? 'm' : 'f';
+		}
 	}
 
 	BasicInfo.init(
