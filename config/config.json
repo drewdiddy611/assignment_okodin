@@ -2,21 +2,21 @@
 	"development": {
 		"username": "user",
 		"password": null,
-		"database": "demo_exploring_sequelize_development",
+		"database": "database_name",
 		"host": "127.0.0.1",
 		"dialect": "postgres"
 	},
 	"test": {
 		"username": "user",
 		"password": null,
-		"database": "demo_exploring_sequelize_test",
+		"database": "database_name",
 		"host": "127.0.0.1",
 		"dialect": "postgres"
 	},
 	"production": {
 		"username": "user",
 		"password": null,
-		"database": "demo_exploring_sequelize_production",
+		"database": "database_name",
 		"host": "127.0.0.1",
 		"dialect": "postgres"
 	}
